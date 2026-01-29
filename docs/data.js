@@ -403,15 +403,6 @@ ol {
 <body>
     <input class="input-is-sidebar-active" style="display: none" type="checkbox" id="is-sidebar-active">
     <header>
-        <div class="header-logo">
-            <svg class='header-logo-img'
-                 xmlns="http://www.w3.org/2000/svg" width="39.3" height="39.3" viewBox="0 0 143 143"
-                 shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero">
-                <path
-                        d="M72 0c13 0 24 9 32 22 7 13 11 31 11 50v13l-15 6c1-6 2-13 2-19 0-17-4-32-10-43-6-9-13-15-20-15-6 0-11 3-16 9-7 1-13 3-19 5l3-6C48 9 59 0 72 0zm34 116c-1 2-1 3-2 5-8 14-19 22-32 22s-24-8-32-22c-8-13-12-30-12-49 0-5 0-9 1-13 4-2 9-4 14-6-1 6-1 12-1 19 0 16 4 31 10 42 5 10 12 16 20 16 5 0 10-3 15-9 6-1 13-3 19-5zM0 72c0-13 9-24 22-32s31-12 50-12c4 0 9 0 13 1 2 4 4 9 6 15-6-2-13-2-19-2-17 0-32 4-43 10-9 5-15 12-15 20 0 5 3 11 9 15 1 7 3 13 4 19-1-1-3-1-5-2C9 96 0 85 0 72zm53 28c6 1 12 2 19 2 16 0 31-4 42-10 10-6 16-13 16-20 0-6-3-11-9-15-1-7-3-14-5-20 2 1 3 2 5 3 14 8 22 19 22 32s-8 24-22 32c-13 7-30 11-49 11H59c-3-5-4-10-6-15z"/>
-            </svg>
-            <p>iamra.css</p>
-        </div>
         <p class="example-button-change-theme cursor-pointer" onclick="changeTheme()">Dark Mode</p>
         <div class='get-menu' onclick="showMenu()">
             <svg id='get-menu' viewBox="0 0 100 100">
@@ -1937,6 +1928,7 @@ footer {
     transition: .5s;
     z-index: 99;
     background: var(--sidebar-color);
+    min-height: 100dvh;
     max-height: 100dvh;
     padding-bottom: var(--m);
     border-right: var(--border);

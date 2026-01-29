@@ -1713,6 +1713,7 @@ footer {
     transition: .5s;
     z-index: 99;
     background: var(--sidebar-color);
+    min-height: 100dvh;
     max-height: 100dvh;
     padding-bottom: var(--m);
     border-right: var(--border);
