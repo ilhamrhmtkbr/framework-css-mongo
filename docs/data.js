@@ -442,7 +442,7 @@ ol {
                     </svg>
                     <p>Abstract</p>
                 </a>
-                <details>
+                <details class="sidebar-menu-accordion">
                     <summary class="sidebar-menu-item" data-title="Sub Menu">
                         <svg class="sidebar-menu-button-svg">
                             <use href="#display"></use>
