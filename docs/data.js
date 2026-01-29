@@ -26,23 +26,32 @@ style html tags first, so that the fonts work properly.
 :root {
     --bg-color: #ffffff;
     --transbg-color: #ffffff80;
-    --second-bg-color: #fcfcfc;
-    --third-bg-color: #fafafa;
-    --fourth-bg-color: #f7f7f7;
-    --fifth-bg-color: #f5f5f5;
-    --text-color: #09090b;
-    --transtext-color: #09090b11;
-    --link-color: #5f6368;
-    --translink-color: #5f636811;
-    --border-color: #ebebeb;
-    --red-color: #ef2323;
-    --transred-color: #ef232311;
-    --orange-color: #ff7200;
-    --transorange-color: #ff720011;
-    --green-color: #009f4d;
-    --transgreen-color: #009f4d17;
-    --blue-color: #0060fa;
-    --transblue-color: #0060fa11;
+    --sidebar-color: #F9FBFA;
+    --sidebar-hover-color: #E8EDEB;
+
+    --text-color: #13222C;
+    --transtext-color: #13222C11;
+    --link-color: #3D4F58;
+    --translink-color: #3D4F5811;
+    --border-color: #D3D9DD;
+    --scrollthumb-color: #889397;
+
+    --primary-color: #00684A;
+    --transprimary-color: #00684A11;
+    --second-primary-color: #4BA45D;
+    --transsecond-primary-color: #4BA45D11;
+    --third-primary-color: #00ED64;
+    --transthird-primary-color: #00ED6411;
+
+    --danger-color: #E74C3C;
+    --transdanger-color: #E74C3C11;
+
+    --success-color: #7B61FF;
+    --transsuccess-color: #7B61FF11;
+
+    --warning-color: #FFB000; /* MongoDB punya warning gold gini */
+    --transwarning-color: #FFB00011;
+
     --border: 1px solid var(--border-color);
     --box-shadow: 0px 0px 10px rgba(36, 45, 87, 0.1);
     -webkit-box-shadow: 0 0 10px rgba(36, 45, 87, 0.1);
@@ -60,35 +69,48 @@ style html tags first, so that the fonts work properly.
     --radius-l: .575rem;
     --radius-m: .375rem;
     --radius-s: .275rem;
+
+    --height-header: calc(var(--xs) * 5);
+    --width-sidebar: 253px;
+    --width-sidebar-active: 63px;
     --ideal-distance-to-header: calc((var(--xs) * 5) + var(--xxx));
 }
 
 body.dark-mode {
-    --bg-color: #202124;
-    --transbg-color: #20212480;
-    --second-bg-color: #232427;
-    --third-bg-color: #26272a;
-    --fourth-bg-color: #292a2d;
-    --fifth-bg-color: #2c2d30;
-    --text-color: #fff;
-    --transtext-color: #ffffff13;
-    --link-color: #9aa0a6;
-    --translink-color: #9aa0a613;
-    --border-color: #38393e;
+    /* Dark Mode */
+    /* Dark Mode */
+    --bg-color: #001E2B;
+    --transbg-color: #001E2B80;
+    --sidebar-color: #0D1B24;
+    --sidebar-hover-color: #13222C;
+
+    --text-color: #E8EDEE;
+    --transtext-color: #E8EDEE11;
+    --link-color: #A0AEC0;
+    --translink-color: #A0AEC011;
+    --border-color: #2A3F4C;
+    --scrollthumb-color: #3D4F58;
+
+    --primary-color: #00ED64;
+    --transprimary-color: #00ED6411;
+    --second-primary-color: #4BA45D;
+    --transsecond-primary-color: #4BA45D11;
+    --third-primary-color: #00684A;
+    --transthird-primary-color: #00684A11;
+
+    --danger-color: #FF6B6B;
+    --transdanger-color: #FF6B6B11;
+
+    --success-color: #9B7FFF;
+    --transsuccess-color: #9B7FFF11;
+
+    --warning-color: #FFC940;
+    --transwarning-color: #FFC94011;
+
     --border: 1px solid var(--border-color);
-    --box-shadow: color-mix(in srgb, rgb(0, 0, 0) 30%, transparent) 0 1px 2px 0, color-mix(in srgb, rgb(0, 0, 0) 15%, transparent) 0 2px 6px 2px;
-    
-    --red-color: #ff5c5c;
-    --transred-color: #ff5c5c22;
-
-    --orange-color: #ffb84d;
-    --transorange-color: #ffb84d22;
-
-    --green-color: #4ade80;
-    --transgreen-color: #4ade8022;
-
-    --blue-color: #4da6ff;
-    --transblue-color: #4da6ff22;
+    --box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar {
@@ -101,7 +123,7 @@ body.dark-mode {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ababb6;
+    background-color: var(--scrollthumb-color);
     border-radius: 25px;
 }
 
@@ -133,11 +155,11 @@ main {
     max-width: 1920px;
     box-sizing: border-box;
     display: grid;
-    justify-items: center;
     min-height: 100dvh;
     margin-left: auto;
     margin-right: auto;
-    grid-auto-rows: max-content;
+    grid-template-rows: 1fr;
+    grid-template-columns: max-content 1fr;
 }
 
 section {
@@ -171,19 +193,19 @@ ol {
 }
 
 .border-primary {
-    border-color: var(--blue-color);
+    border-color: var(--primary-color);
 }
 
 .border-warning {
-    border-color: var(--orange-color);
+    border-color: var(--warning-color);
 }
 
 .border-danger {
-    border-color: var(--red-color);
+    border-color: var(--danger-color);
 }
 
 .border-success {
-    border-color: var(--green-color);
+    border-color: var(--success-color);
 }
 
 .radius-x {
@@ -379,6 +401,7 @@ ol {
     <title>Docs</title>
 </head>
 <body>
+    <input class="input-is-sidebar-active" style="display: none" type="checkbox" id="is-sidebar-active">
     <header>
         <div class="header-logo">
             <svg class='header-logo-img'
@@ -408,46 +431,49 @@ ol {
         <a href="index.html">Index</a>
         <a href="example.html">Example</a>
     </nav>
-    <main>
-    <section></section>
-    <section></section>
-    <aside class="sidebar-menu">
-        <div class="sidebar-menu-title sidebar-menu-item" onclick="minifySidebar()">
-            <svg class="sidebar-menu-button-svg">
-                <use href="#click"></use>
-            </svg>
-            <p>Menu</p>
-        </div>
-
-        <div class="sidebar-menu-element">
-            <a class="sidebar-menu-item" data-title="Abstract" href="#Abstract">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#click"></use>
-                </svg>
-                <p>Abstract</p>
-            </a>
-            <details>
-                <summary class="sidebar-menu-item" data-title="Sub Menu">
+    <main class="has-sidebar">
+        <section></section>
+        <aside class="sidebar-menu">
+            <div class="sidebar-menu-header">
+                <svg class="sidebar-menu-header-logo" xmlns="http://www.w3.org/2000/svg" width="35.52" height="32.544" viewBox="0 0 6380 5852" shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd"><path d="M2770 4042V2703c0-560 841-560 841 0v1339c0 559-841 559-841 0z" fill="#ffc300"/><path d="M4920 3444l561 972v2c37 63 55 130 55 196 0 67-18 134-55 197v1c-36 64-85 113-143 146v1c-55 31-122 48-198 48v2H4016c-539 0-539 841 0 841h1124v2c222 0 433-58 618-165h2c182-105 337-259 450-454h0c114-196 170-407 170-619 0-211-56-422-170-618h0l-562-973c-269-466-998-46-728 421z" fill="#ef2323"/><path d="M4094 2013c269 467 997 46 728-420l-561-973v-1c-112-193-266-347-451-454v-1C3625 57 3414 0 3190 0c-223 0-434 57-620 164v1c-184 107-339 261-450 454v1l-562 973c-269 466 459 887 729 420l561-973 1 1c38-66 86-116 142-148h1c55-32 123-49 198-49 76 0 143 17 198 49h2c55 32 104 82 142 148v-1l562 973z" fill="#009f4d"/><path d="M899 4416l562-972c269-467-459-887-729-421l-561 973h-1C57 4192 0 4403 0 4614c0 212 57 423 170 619 112 194 267 348 450 454h2c185 107 396 165 618 165v-2h1124c539 0 539-841 0-841H1240v-2c-76 0-143-17-198-48l1-1c-57-32-107-82-144-147-36-63-55-130-55-197 0-66 19-133 55-196v-2z" fill="#0060fa"/></svg>
+                <p class="sidebar-menu-header-title">Iamra Css</p>
+            </div>
+            <div class="sidebar-menu-element">
+                <label class="sidebar-menu-item" for="is-sidebar-active">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#display"></use>
+                        <use href="#click"></use>
                     </svg>
-                    <span>Sub Menu</span>
-                </summary>
-                <a class="sidebar-menu-item" data-title="Chil Menu" href="#ChilMenu">
+                    <p>Menu</p>
+                </label>
+                <a class="sidebar-menu-item" data-title="Abstract" href="#Abstract">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#display-place"></use>
+                        <use href="#click"></use>
                     </svg>
-                    <p>Chil Menu</p>
+                    <p>Abstract</p>
                 </a>
-            </details>
-        </div>
-    </aside>
+                <details>
+                    <summary class="sidebar-menu-item" data-title="Sub Menu">
+                        <svg class="sidebar-menu-button-svg">
+                            <use href="#display"></use>
+                        </svg>
+                        <span>Sub Menu</span>
+                    </summary>
+                    <a class="sidebar-menu-item" data-title="Chil Menu" href="#ChilMenu">
+                        <svg class="sidebar-menu-button-svg">
+                            <use href="#display-place"></use>
+                        </svg>
+                        <p>Chil Menu</p>
+                    </a>
+                </details>
+            </div>
+        </aside>
+    </main>
     <footer>
         ...
     </footer>
 </body>
 </html>`,
-    `.accordion-item{
+    `.accordion-item {
     display: block;
     padding: var(--m);
     border: var(--border);
@@ -539,51 +565,51 @@ ol {
     </div>
 </div>`,
     `.bg-primary {
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }
 
 .bg-trans-primary {
-    background-color: var(--transblue-color);
+    background-color: var(--transprimary-color);
 }
 
 .bg-trans-primary-hover:hover {
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }
 
 .bg-danger {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
 }
 
 .bg-trans-danger {
-    background-color: var(--transred-color);
+    background-color: var(--transdanger-color);
 }
 
 .bg-trans-danger-hover:hover {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
 }
 
 .bg-warning {
-    background-color: var(--orange-color);
+    background-color: var(--warning-color);
 }
 
 .bg-trans-warning {
-    background-color: var(--transorange-color);
+    background-color: var(--transwarning-color);
 }
 
 .bg-trans-warning-hover:hover {
-    background-color: var(--orange-color);
+    background-color: var(--warning-color);
 }
 
 .bg-success {
-    background-color: var(--green-color);
+    background-color: var(--success-color);
 }
 
 .bg-trans-success {
-    background-color: var(--transgreen-color);
+    background-color: var(--transsuccess-color);
 }
 
 .bg-trans-success-hover:hover {
-    background-color: var(--green-color);
+    background-color: var(--success-color);
 }
 
 .bg-gradient {
@@ -593,8 +619,8 @@ ol {
     background-color: var(--bg-color);
     /* add var 2 gradient */
     /* .example {
-      --first-gradient-color: var(--transblue-color);
-      --second-gradient-color: var(--transred-color);
+      --first-gradient-color: var(--transprimary-color);
+      --second-gradient-color: var(--transdanger-color);
     } */
     /*background-image: linear-gradient(160deg, var(--first-gradient-color) 0%, var(--second-gradient-color) 100%);*/
 }`,
@@ -638,22 +664,22 @@ ol {
     font-weight: bold;
     border: var(--border);
     border-width: 1.5px;
-    border-color: var(--red-color);
+    border-color: var(--danger-color);
     border-radius: 99px;
-    color: var(--red-color);
+    color: var(--danger-color);
     background-color: var(--bg-color);
     font-size: var(--s);
     cursor: pointer;
 }
 
 .badge-button-close:hover {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
 }
 
 .badge-button-close svg {
     max-width: 10px;
     max-height: 10px;
-    fill: var(--red-color);
+    fill: var(--danger-color);
 }
 
 .badge-button-close:hover svg {
@@ -661,23 +687,23 @@ ol {
 }
 
 .badge-primary {
-    background-color: var(--transblue-color);
-    color: var(--blue-color);
+    background-color: var(--transprimary-color);
+    color: var(--primary-color);
 }
 
 .badge-danger {
-    background-color: var(--transred-color);
-    color: var(--red-color);
+    background-color: var(--transdanger-color);
+    color: var(--danger-color);
 }
 
 .badge-warning {
-    background-color: var(--transorange-color);
-    color: var(--orange-color);
+    background-color: var(--transwarning-color);
+    color: var(--warning-color);
 }
 
 .badge-success {
-    background-color: var(--transgreen-color);
-    color: var(--green-color);
+    background-color: var(--transsuccess-color);
+    color: var(--success-color);
 }`,
     `<div class="badge badge-close badge-primary">
     <p>Example</p>
@@ -720,9 +746,9 @@ ol {
 }
 
 .bottom-sheet-header:hover{
-    background-color: var(--transblue-color);
-    color: var(--blue-color);
-    fill: var(--blue-color);
+    background-color: var(--transprimary-color);
+    color: var(--primary-color);
+    fill: var(--primary-color);
     transform: scale(1.07);
 }
 
@@ -757,16 +783,14 @@ ol {
     gap: var(--s) var(--xxs);
     padding: var(--xs);
     font-size: var(--s);
-    background: var(--third-bg-color);
     border-radius: var(--radius-s);
     border: var(--border);
     width: max-content;
-    max-width: 85vw;
+    max-width: 85dvw;
     color: var(--link-color);
 }
 
 .breadcrumb-item {
-    background: var(--bg-color);
     padding: 2px var(--xs);
     border-radius: var(--radius-s);
     color: var(--link-color);
@@ -776,7 +800,7 @@ ol {
 
 .breadcrumb-item:hover,
 .breadcrumb-item.active {
-    color: var(--blue-color);
+    color: var(--primary-color);
 }`,
     `<div class="breadcrumb">
     <a class="breadcrumb-item">menu a</a>
@@ -835,71 +859,71 @@ ol {
 }
 
 .button.btn-primary {
-    color: var(--blue-color);
+    color: var(--primary-color);
 }
 
 .button:hover.btn-primary {
-    border-color: var(--blue-color);
+    border-color: var(--primary-color);
 }
 
 .button:hover.bg-primary,
 .button:hover.btn-primary {
-    outline-color: var(--transblue-color);
+    outline-color: var(--transprimary-color);
 }
 
 .button:hover.badge-primary {
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }
 
 .button.btn-danger {
-    color: var(--red-color);
+    color: var(--danger-color);
 }
 
 .button:hover.btn-danger {
-    border-color: var(--red-color);
+    border-color: var(--danger-color);
 }
 
 .button:hover.bg-danger,
 .button:hover.btn-danger {
-    outline-color: var(--transred-color);
+    outline-color: var(--transdanger-color);
 }
 
 .button:hover.badge-danger {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
 }
 
 .button.btn-warning {
-    color: var(--orange-color);
+    color: var(--warning-color);
 }
 
 .button:hover.btn-warning {
-    border-color: var(--orange-color);
+    border-color: var(--warning-color);
 }
 
 .button:hover.bg-warning,
 .button:hover.btn-warning {
-    outline-color: var(--transorange-color);
+    outline-color: var(--transwarning-color);
 }
 
 .button:hover.badge-warning {
-    background-color: var(--orange-color);
+    background-color: var(--warning-color);
 }
 
 .button.btn-success {
-    color: var(--green-color);
+    color: var(--success-color);
 }
 
 .button:hover.btn-success {
-    border-color: var(--green-color);
+    border-color: var(--success-color);
 }
 
 .button:hover.bg-success,
 .button:hover.btn-success {
-    outline-color: var(--transgreen-color);
+    outline-color: var(--transsuccess-color);
 }
 
 .button:hover.badge-success {
-    background-color: var(--green-color);
+    background-color: var(--success-color);
 }
 
 .hover-progress {
@@ -915,7 +939,7 @@ ol {
     bottom: 0;
     left: 50%;
     border-radius: 4px;
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     transform: translateX(-50%);
 }
@@ -1016,7 +1040,7 @@ ol {
     display: grid;
     gap: var(--m);
     padding-left: var(--xx);
-    border-left: 5px solid var(--blue-color);
+    border-left: 5px solid var(--primary-color);
     border-radius: var(--m);
 }
 
@@ -1138,24 +1162,24 @@ ol {
     fill: var(--text-color);
 }
 
-.svg-fill-blue:hover,
-.fill-blue {
-    fill: var(--blue-color);
+.svg-fill-primary:hover,
+.fill-primary {
+    fill: var(--primary-color);
 }
 
-.svg-fill-red:hover,
-.fill-red {
-    fill: var(--red-color);
+.svg-fill-danger:hover,
+.fill-danger {
+    fill: var(--danger-color);
 }
 
-.svg-fill-orange:hover,
-.fill-orange {
-    fill: var(--orange-color);
+.svg-fill-warning:hover,
+.fill-warning {
+    fill: var(--warning-color);
 }
 
-.svg-fill-green:hover,
-.fill-green {
-    fill: var(--green-color);
+.svg-fill-success:hover,
+.fill-success {
+    fill: var(--success-color);
 }`,
     `<svg class="svg-l"></svg>`,
     `.swiper {
@@ -1410,9 +1434,9 @@ textarea {
 
 input::-webkit-file-upload-button {
     cursor: pointer;
-    border: 1px solid var(--blue-color);
+    border: 1px solid var(--primary-color);
     outline: none;
-    color: var(--blue-color);
+    color: var(--primary-color);
     background-color: var(--bg-color);
     padding: 7px var(--xs);
     min-width: 63px;
@@ -1424,7 +1448,7 @@ input::-webkit-file-upload-button {
 
 input::-webkit-file-upload-button:hover {
     color: var(--bg-color);
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }
 
 input[type='date'] {
@@ -1478,7 +1502,7 @@ textarea.textarea-clear-style {
 
 .form-like-google-input:focus,
 .form-like-google-input:not(:placeholder-shown) {
-    border-color: var(--blue-color);
+    border-color: var(--primary-color);
 }
 
 .form-like-google-input:focus + .form-like-google-label,
@@ -1486,7 +1510,7 @@ textarea.textarea-clear-style {
     top: 0;
     font-size: var(--s);
     background-color: var(--bg-color);
-    color: var(--blue-color);
+    color: var(--primary-color);
     padding: 0 4px;
 }
 `,
@@ -1634,7 +1658,7 @@ footer {
 }
 
 header {
-    height: calc(var(--xs) * 5);
+    height: var(--height-header);
     position: fixed;
     top: 0;
     left: 0;
@@ -1642,38 +1666,24 @@ header {
     z-index: 99;
     background-color: var(--transbg-color);
     backdrop-filter: blur(5px);
-    padding: 5px var(--m);
+    padding: 5px var(--m) 5px calc(var(--width-sidebar) + var(--m));
     align-items: center;
+    border-bottom: var(--border);
 }
 
-.header-logo {
+.input-is-sidebar-active:checked + header {
+    padding-left: calc(var(--width-sidebar-active) + var(--m));
+}
+
+.navigation {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--m);
-    padding: var(--xxs) 0;
-    transition: .3s;
-}
-
-.header-logo-img {
-    width: 17px;
-    height: 17px;
-    fill: var(--text-color);
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    gap: var(--m);
-    font-family: Medium, serif;
-}
-
-nav a {
-    cursor: pointer;
-    color: var(--link-color);
-}
-
-nav a.active {
-    color: var(--text-color);
+    display: none;
 }
 
 footer {
@@ -1682,7 +1692,8 @@ footer {
     color: var(--link-color);
     font-size: var(--s);
     border-top: var(--border);
-    padding: 10dvh var(--m) 20dvh var(--m);
+    padding: 10dvh var(--m) 20dvh 341px;
+    justify-content: space-around;
 }`,
     `<header>
     <div class="header-logo">
@@ -1733,22 +1744,12 @@ footer {
     `<div class="picture-default rounded"></div>`,
     `.loading-spinner {
     border: 4px solid transparent;
-    border-top: 4px solid var(--text-color);
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
     background-color: transparent;
     width: var(--x);
     height: var(--x);
     animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 @keyframes spin {
@@ -1772,7 +1773,7 @@ footer {
 
 .loading-bar-progress {
     height: 100%;
-    background: #0060fa;
+    background: var(--primary-color);
     width: 0;
     border-radius: 99px;
 }
@@ -1797,10 +1798,13 @@ footer {
 }
 
 @keyframes skeleton-loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-`,
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}`,
     `<div class="loading-spinner"></div>
 <div class="loading-bar max-width-400">
     <div class="loading-bar-progress with-animation-progress"></div>
@@ -1914,7 +1918,7 @@ footer {
 
 .pagination-item:hover,
 .pagination-item.active {
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
     color: white;
 }`,
     `<div class="pagination">
@@ -1925,36 +1929,44 @@ footer {
     <div class="pagination-item">></div>
 </div>`,
     `.sidebar-menu {
-    width: 325px;
+    width: var(--width-sidebar);
     box-sizing: border-box;
     position: fixed;
     left: 0;
-    top: var(--ideal-distance-to-header);
-    padding: 0 var(--m) var(--m) var(--m);
+    top: 0;
     transition: .5s;
+    z-index: 99;
+    background: var(--sidebar-color);
+    max-height: 100dvh;
+    padding-bottom: var(--m);
+    border-right: var(--border);
 }
 
-main.has-sidebar.active .sidebar-menu {
-    width: 117px;
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu {
+    width: var(--width-sidebar-active);
 }
 
-.sidebar-menu-content{
-    padding: var(--m);
-    background-color: var(--third-bg-color);
-    border-radius: var(--radius-m);
-    display: grid;
-    grid-auto-rows: max-content 1fr;
-    max-height: 70dvh;
+.sidebar-menu-header {
+    display: flex;
+    align-items: center;
+    gap: var(--xs);
+    height: var(--height-header);
+    border-bottom: var(--border);
+    box-sizing: border-box;
+    padding-left: var(--m);
+    margin-bottom: var(--m);
+    color: var(--primary-color);
 }
 
-main.has-sidebar.active .sidebar-menu p,
-main.has-sidebar.active .sidebar-menu span {
+.sidebar-menu-header-logo {
+    max-width: var(--m);
+    max-height: var(--m);
+}
+
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu p,
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu span,
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu-header-title {
     display: none;
-}
-
-.sidebar-menu-title {
-    font-family: Medium, ui-sans-serif;
-    font-size: var(--s);
 }
 
 .sidebar-menu-element {
@@ -1962,26 +1974,20 @@ main.has-sidebar.active .sidebar-menu span {
     text-transform: capitalize;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: var(--xxxx);
-    padding-right: var(--xs);
+    box-sizing: border-box;
+    padding-right: 4px;
+    max-height: calc(100dvh - var(--height-header) - calc(var(--m) * 2));
 }
 
 .sidebar-menu-accordion {
-    margin-bottom: var(--xxs);
-    border-radius: var(--radius-m);
     box-sizing: border-box;
 }
 
 .sidebar-menu-accordion[open] {
-    background-color: var(--border-color);
+    background-color: var(--transthird-primary-color);
 }
 
-.sidebar-menu-element summary {
-    margin-bottom: 0;
-}
-
-.sidebar-menu-accordion-elements{
-    padding: var(--xxs);
+.sidebar-menu-accordion-elements {
     box-sizing: border-box;
 }
 
@@ -1993,17 +1999,15 @@ main.has-sidebar.active .sidebar-menu span {
     display: flex;
     column-gap: var(--m);
     row-gap: var(--xxs);
-    padding: var(--m) var(--xs);
-    fill: var(--link-color);
-    color: var(--link-color);
+    padding: var(--xxs) var(--m);
+    color: var(--text-color);
+    font-size: 0.8rem;
     align-items: center;
     cursor: pointer;
     box-sizing: border-box;
-    background-color: var(--bg-color);
-    border: var(--border);
-    border-color: transparent;
-    margin-bottom: var(--xxs);
-    border-radius: var(--radius-m);
+    border-left-width: 3px;
+    border-left-color: transparent;
+    border-left-style: solid;
 }
 
 .sidebar-menu .sidebar-menu-item[data-title]::after {
@@ -2027,100 +2031,90 @@ main.has-sidebar.active .sidebar-menu span {
     font-family: Medium, ui-sans-serif;
 }
 
-main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu-item[data-title]:hover::after {
     visibility: visible;
     opacity: 1;
 }
 
 .sidebar-menu-button-svg {
-    max-width: var(--s);
-    max-height: var(--s);
-    fill: var(--text-color);
+    max-width: var(--xs);
+    max-height: var(--xs);
+    fill: var(--link-color);
 }
 
-.sidebar-menu-item:hover,
+.sidebar-menu-item:hover {
+    background-color: var(--sidebar-hover-color);
+    color: var(--primary-color);
+}
+
 .sidebar-menu-item.active {
-    border-color: var(--border-color);
-    color: var(--blue-color);
+    background-color: var(--transthird-primary-color);
+    color: var(--primary-color);
+    border-left-color: var(--second-primary-color);
 }
 
 .sidebar-menu-item:hover .sidebar-menu-button-svg,
 .sidebar-menu-item.active .sidebar-menu-button-svg {
-    fill: var(--blue-color);
+    fill: var(--primary-color);
 }
 
 main.has-sidebar section {
     transition: .5s;
-    padding-left: calc(325px + var(--m));
+    padding-left: calc(var(--width-sidebar) + var(--m));
 }
 
-main.has-sidebar.active section {
-    padding-left: calc(117px + var(--m));
+.input-is-sidebar-active:checked ~ .has-sidebar section {
+    padding-left: calc(var(--width-sidebar-active) + var(--m));
 }
 
-main.has-sidebar.active .sidebar-menu-item {
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu-item {
     justify-content: center;
 }`,
-    `<aside class="sidebar-menu">
-    <div class="sidebar-menu-content">
-        <div class="sidebar-menu-title sidebar-menu-item" onclick="minifySidebar()">
+    `<section>
+...
+</section>
+<aside class="sidebar-menu">
+    <div class="sidebar-menu-header">
+        <svg class="sidebar-menu-header-logo" xmlns="http://www.w3.org/2000/svg" width="35.52" height="32.544" viewBox="0 0 6380 5852" shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd"><path d="M2770 4042V2703c0-560 841-560 841 0v1339c0 559-841 559-841 0z" fill="#ffc300"/><path d="M4920 3444l561 972v2c37 63 55 130 55 196 0 67-18 134-55 197v1c-36 64-85 113-143 146v1c-55 31-122 48-198 48v2H4016c-539 0-539 841 0 841h1124v2c222 0 433-58 618-165h2c182-105 337-259 450-454h0c114-196 170-407 170-619 0-211-56-422-170-618h0l-562-973c-269-466-998-46-728 421z" fill="#ef2323"/><path d="M4094 2013c269 467 997 46 728-420l-561-973v-1c-112-193-266-347-451-454v-1C3625 57 3414 0 3190 0c-223 0-434 57-620 164v1c-184 107-339 261-450 454v1l-562 973c-269 466 459 887 729 420l561-973 1 1c38-66 86-116 142-148h1c55-32 123-49 198-49 76 0 143 17 198 49h2c55 32 104 82 142 148v-1l562 973z" fill="#009f4d"/><path d="M899 4416l562-972c269-467-459-887-729-421l-561 973h-1C57 4192 0 4403 0 4614c0 212 57 423 170 619 112 194 267 348 450 454h2c185 107 396 165 618 165v-2h1124c539 0 539-841 0-841H1240v-2c-76 0-143-17-198-48l1-1c-57-32-107-82-144-147-36-63-55-130-55-197 0-66 19-133 55-196v-2z" fill="#0060fa"/></svg>
+        <p class="sidebar-menu-header-title">Iamra Css</p>
+    </div>
+    <div class="sidebar-menu-element">
+        <label class="sidebar-menu-item" for="is-sidebar-active">
             <svg class="sidebar-menu-button-svg">
                 <use href="#click"></use>
             </svg>
             <p>Menu</p>
-        </div>
-        <div class="sidebar-menu-element">
-            <a class="sidebar-menu-item" data-title="Data" href="#Data">
-                <svg class="svg-s sidebar-menu-button-svg">
-                    <use href="/sprite.svg#click"></use>
-                </svg>
-                <p>Data</p>
-            </a>
+        </label>
         <details class="sidebar-menu-accordion">
-            <summary class="sidebar-menu-item" data-title="Dimen">
+            <summary class="sidebar-menu-item" data-title="Display">
                 <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen"></use>
+                    <use href="#display"></use>
                 </svg>
-                <span>Dimen</span>
+                <span>Display</span>
             </summary>
             <div class="sidebar-menu-accordion-elements">
-                <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
+                <a class="sidebar-menu-item" data-title="Place" href="#Place">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#dimen-gap"></use>
+                        <use href="#display-place"></use>
                     </svg>
-                    <p>Gap</p>
+                    <p>Place</p>
                 </a>
-                <a class="sidebar-menu-item" data-title="Height" href="#Height">
+                <a class="sidebar-menu-item" data-title="Flex" href="#Flex">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#dimen-height"></use>
+                        <use href="#display-flex"></use>
                     </svg>
-                    <p>Height</p>
+                    <p>Flex</p>
                 </a>
-                <a class="sidebar-menu-item" data-title="Svg" href="#Svg">
+                <a class="sidebar-menu-item" data-title="Grid" href="#Grid">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#dimen-svg"></use>
+                        <use href="#display-grid"></use>
                     </svg>
-                    <p>Svg</p>
-                </a>
-                <a class="sidebar-menu-item" data-title="Swiper" href="#Swiper">
-                    <svg class="sidebar-menu-button-svg">
-                        <use href="#dimen-swiper"></use>
-                    </svg>
-                    <p>Swiper</p>
-                </a>
-                <a class="sidebar-menu-item" data-title="Width" href="#Width">
-                    <svg class="sidebar-menu-button-svg">
-                        <use href="#dimen-width"></use>
-                    </svg>
-                    <p>Width</p>
+                    <p>Grid</p>
                 </a>
             </div>
         </details>
     </div>
 </aside>
-<section>
-...
-</section>
 `,
     `.stepper {
     display: flex;
@@ -2156,7 +2150,7 @@ main.has-sidebar.active .sidebar-menu-item {
 
 .stepper-key.active,
 .stepper-key:hover{
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -2168,7 +2162,7 @@ main.has-sidebar.active .sidebar-menu-item {
 .stepper-divider {
     height: 1px;
     min-width: 111px;
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }`,
     `<div class="stepper">
     <div class="stepper-item">
@@ -2191,6 +2185,11 @@ main.has-sidebar.active .sidebar-menu-item {
     font-size: var(--s);
 }
 
+.table-box::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
 table {
     width: 100%;
     white-space: nowrap;
@@ -2199,7 +2198,7 @@ table {
 }
 
 th {
-    background-color: var(--third-bg-color);
+    background-color: var(--sidebar-color);
     border-top: var(--border);
     border-bottom: var(--border);
 }
@@ -2225,11 +2224,11 @@ td {
 }
 
 tbody tr:hover {
-    background-color: var(--second-bg-color);
+    background-color: var(--sidebar-hover-color);
 }
 
 tr:nth-child(even) {
-    background-color: var(--third-bg-color);
+    background-color: var(--sidebar-color);
 }
 
 td {
@@ -2241,7 +2240,7 @@ td:first-child {
 }
 
 td:hover {
-    background-color: var(--fifth-bg-color);
+    background-color: var(--transsecond-primary-color);
 }
 
 td.fit {
@@ -2267,6 +2266,8 @@ td.action a,
 td.action button,
 td.action div {
     font-size: var(--s);
+    text-transform: capitalize;
+    font-family: Medium, sans-serif;
 }
 
 td.action a,
@@ -2313,7 +2314,7 @@ td.action :hover {
     transform: translateY(-50%);
     width: calc(var(--xxs) / 2 + 2px);
     height: var(--xx);
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
     border-radius: 90px;
 }
 
@@ -2321,7 +2322,7 @@ td.action :hover {
     font-size: var(--x);
     position: relative;
     font-family: Medium, ui-sans-serif;
-    color: var(--blue-color);
+    color: var(--primary-color);
     padding-left: var(--s);
     width: max-content;
     max-width: 85dvw;
@@ -2343,35 +2344,35 @@ td.action :hover {
 }
 
 .text-primary {
-    color: var(--blue-color);
+    color: var(--primary-color);
 }
 
 .text-danger {
-    color: var(--red-color);
+    color: var(--danger-color);
 }
 
 .text-warning {
-    color: var(--orange-color);
+    color: var(--warning-color);
 }
 
 .text-success {
-    color: var(--green-color);
+    color: var(--success-color);
 }
 
 .text-primary-hover:hover {
-    color: var(--blue-color);
+    color: var(--primary-color);
 }
 
 .text-danger-hover:hover {
-    color: var(--red-color);
+    color: var(--danger-color);
 }
 
 .text-warning-hover:hover {
-    color: var(--orange-color);
+    color: var(--warning-color);
 }
 
 .text-success-hover:hover {
-    color: var(--green-color);
+    color: var(--success-color);
 }
 
 .text-link {
@@ -2397,7 +2398,7 @@ td.action :hover {
     font-family: Light, ui-sans-serif;
     font-size: var(--s);
     font-weight: bold;
-    color: var(--red-color);
+    color: var(--danger-color);
     margin-top: 2px;
 }
 
@@ -2446,9 +2447,9 @@ td.action :hover {
     font-weight: bold;
     border: var(--border);
     border-width: 1.5px;
-    border-color: var(--red-color);
+    border-color: var(--danger-color);
     border-radius: 99px;
-    color: var(--red-color);
+    color: var(--danger-color);
     background-color: var(--bg-color);
     font-size: var(--s);
     cursor: pointer;
@@ -2457,14 +2458,14 @@ td.action :hover {
 }
 
 .toast-button-close:hover {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
     border-color: white;
 }
 
 .toast-button-close svg {
     max-width: 10px;
     max-height: 10px;
-    fill: var(--red-color);
+    fill: var(--danger-color);
 }
 
 .toast-button-close:hover svg {
@@ -2507,7 +2508,7 @@ td.action :hover {
 
 .timeline-key.active,
 .timeline-key:hover{
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -2531,7 +2532,7 @@ td.action :hover {
     min-height: 63px;
     width: 2px;
     margin-left: 20px;
-    background-color: var(--blue-color);
+    background-color: var(--primary-color);
 }`,
     `<div class="timeline">
     <div class="timeline-item">
@@ -2575,7 +2576,7 @@ td.action :hover {
 
 .toggle:hover{
     transform: scale(1.02);
-    border-color: var(--blue-color);
+    border-color: var(--primary-color);
 }
 
 .toggle-check {

@@ -1,3 +1,27 @@
+/* You need to adjust the font replacement in CSS files/other
+style html tags first, so that the fonts work properly.
+
+@font-face {
+    font-family: Light;
+    src: url("../fonts/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: Regular;
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: Medium;
+    src: url("../fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: Bold;
+    src: url("../fonts/Poppins-Bold.ttf");
+}
+ */
+
 :root {
     --bg-color: #ffffff;
     --transbg-color: #ffffff80;
@@ -50,30 +74,6 @@
     --width-sidebar-active: 63px;
     --ideal-distance-to-header: calc((var(--xs) * 5) + var(--xxx));
 }
-
-/* You need to adjust the font replacement in CSS files/other
-style html tags first, so that the fonts work properly.
-
-@font-face {
-    font-family: Light;
-    src: url("../fonts/Poppins-Light.ttf");
-}
-
-@font-face {
-    font-family: Regular;
-    src: url("../fonts/Poppins-Regular.ttf");
-}
-
-@font-face {
-    font-family: Medium;
-    src: url("../fonts/Poppins-Medium.ttf");
-}
-
-@font-face {
-    font-family: Bold;
-    src: url("../fonts/Poppins-Bold.ttf");
-}
- */
 
 body.dark-mode {
     /* Dark Mode */
