@@ -1,6 +1,6 @@
 {
   "name": "iamra-css-mongo",
-  "version": "1.2.2",
+  "version": "1.0.0",
   "description": "by Ilham Rahmat Akbar, terinspirasi dari Dashboard Mongodb Atlas.",
   "main": "dist/style.css",
   "style": "dist/style.css",
