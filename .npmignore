@@ -1,0 +1,7 @@
+.idea/
+.git/
+docs/
+.gitignore
+Dockerfile
+iamra-key
+*.log

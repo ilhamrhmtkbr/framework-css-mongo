@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docs</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        section h1 {
+            font-family: Bold, sans-serif;
+            font-size: var(--xxx);
+        }
+
+        section {
+            margin: var(--m);
+            grid-template-columns: 1fr 2fr;
+        }
+
+        a {
+            font-family: Medium, sans-serif;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .preview__header {
+            color: #d9dee3;
+            background-color: #1a1b25;
+            font-size: var(--s);
+            font-family: Medium, sans-serif;
+            padding: var(--s);
+            border-top-right-radius: var(--radius-m);
+            border-top-left-radius: var(--radius-m);
+            max-width: 700px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview__header div {
+            cursor: pointer;
+        }
+
+        .preview__header div:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            color: #abb2bf;
+            background-color: #282c34;
+            height: max-content;
+            border-bottom-left-radius: var(--radius-m);
+            border-bottom-right-radius: var(--radius-m);
+            overflow: auto;
+            max-width: 700px;
+        }
+
+        pre::-webkit-scrollbar {
+            height: 7px;
+        }
+
+        code {
+            height: max-content;
+        }
+
+        @media screen and (max-width: 1000px) {
+            section {
+                grid-template-columns: 1fr;
+                width: 90dvw !important;
+                max-width: 90dvw !important;
+            }
+
+            .preview__header {
+                max-width: 80dvw;
+            }
+
+            pre {
+                max-width: 80dvw;
+            }
+        }
+
+        @keyframes cube {
+            from {
+                transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                opacity: 1;
+            }
+            to {
+                transform: scale(20) rotate(960deg) translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+
+        .background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            overflow: hidden;
+            z-index: -11;
+        }
+
+        .background li {
+            position: absolute;
+            top: 80vh;
+            left: 45vw;
+            width: 10px;
+            height: 10px;
+            border: solid 1px #e5e5e5;
+            color: transparent;
+            transform-origin: top left;
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            animation: cube 6s ease-in forwards infinite;
+        }
+
+        .background li:nth-child(0) {
+            animation-delay: 0s;
+            left: 54vw;
+            top: 84vh;
+        }
+
+        .background li:nth-child(1) {
+            animation-delay: 2s;
+            left: 14vw;
+            top: 81vh;
+        }
+
+        .background li:nth-child(2) {
+            animation-delay: 4s;
+            left: 0;
+            top: 98vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(3) {
+            animation-delay: 6s;
+            left: 6vw;
+            top: 19vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(4) {
+            animation-delay: 8s;
+            left: 41vw;
+            top: 0;
+        }
+
+        .background li:nth-child(5) {
+            animation-delay: 10s;
+            left: 90vw;
+            top: 79vh;
+        }
+
+        .background li:nth-child(6) {
+            animation-delay: 12s;
+            left: 66vw;
+            top: 15vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(7) {
+            animation-delay: 14s;
+            left: 16vw;
+            top: 27vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(8) {
+            animation-delay: 16s;
+            left: 11vw;
+            top: 6vh;
+        }
+
+        .background li:nth-child(9) {
+            animation-delay: 18s;
+            left: 69vw;
+            top: 10vh;
+        }
+
+        .background li:nth-child(10) {
+            animation-delay: 20s;
+            left: 32vw;
+            top: 91vh;
+        }
+
+        .background li:nth-child(11) {
+            animation-delay: 22s;
+            left: 75vw;
+            top: 73vh;
+        }
+
+        .background li:nth-child(12) {
+            animation-delay: 24s;
+            left: 9vw;
+            top: 23vh;
+        }
+
+        .background li:nth-child(13) {
+            animation-delay: 26s;
+            left: 26vw;
+            top: 92vh;
+        }
+
+        .background li:nth-child(14) {
+            animation-delay: 28s;
+            left: 59vw;
+            top: 4vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(15) {
+            animation-delay: 30s;
+            left: 46vw;
+            top: 34vh;
+        }
+
+        .background li:nth-child(16) {
+            animation-delay: 32s;
+            left: 96vw;
+            top: 35vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(17) {
+            animation-delay: 34s;
+            left: 31vw;
+            top: 85vh;
+        }
+
+        .background li:nth-child(18) {
+            animation-delay: 36s;
+            left: 24vw;
+            top: 48vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(19) {
+            animation-delay: 38s;
+            left: 93vw;
+            top: 13vh;
+        }
+
+        .background li:nth-child(20) {
+            animation-delay: 40s;
+            left: 55vw;
+            top: 42vh;
+        }
+
+        .background li:nth-child(21) {
+            animation-delay: 42s;
+            left: 84vw;
+            top: 9vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(22) {
+            animation-delay: 44s;
+            left: 39vw;
+            top: 51vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(23) {
+            animation-delay: 46s;
+            left: 89vw;
+            top: 56vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(24) {
+            animation-delay: 48s;
+            left: 44vw;
+            top: 57vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(25) {
+            animation-delay: 50s;
+            left: 86vw;
+            top: 41vh;
+        }
+
+        .background li:nth-child(26) {
+            animation-delay: 52s;
+            left: 98vw;
+            top: 20vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(27) {
+            animation-delay: 54s;
+            left: 73vw;
+            top: 65vh;
+        }
+
+        .background li:nth-child(28) {
+            animation-delay: 56s;
+            left: 4vw;
+            top: 27vh;
+        }
+
+        .background li:nth-child(29) {
+            animation-delay: 58s;
+            left: 21vw;
+            top: 68vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(30) {
+            animation-delay: 60s;
+            left: 17vw;
+            top: 39vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(31) {
+            animation-delay: 62s;
+            left: 51vw;
+            top: 88vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(32) {
+            animation-delay: 64s;
+            left: 78vw;
+            top: 31vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(33) {
+            animation-delay: 66s;
+            left: 28vw;
+            top: 54vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(34) {
+            animation-delay: 68s;
+            left: 48vw;
+            top: 63vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(35) {
+            animation-delay: 70s;
+            left: 36vw;
+            top: 75vh;
+        }
+
+        .background li:nth-child(36) {
+            animation-delay: 72s;
+            left: 71vw;
+            top: 95vh;
+        }
+
+        .background li:nth-child(37) {
+            animation-delay: 74s;
+            left: 60vw;
+            top: 47vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(38) {
+            animation-delay: 76s;
+            left: 64vw;
+            top: 72vh;
+            border-color: #ffffff;
+        }
+
+        .background li:nth-child(39) {
+            animation-delay: 78s;
+            left: 80vw;
+            top: 60vh;
+        }
+
+        @font-face {
+            font-family: Light;
+            src: url("./fonts/Poppins-Light.ttf");
+        }
+
+        @font-face {
+            font-family: Regular;
+            src: url("./fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: Medium;
+            src: url("./fonts/Poppins-Medium.ttf");
+        }
+
+        @font-face {
+            font-family: Bold;
+            src: url("./fonts/Poppins-Bold.ttf");
+        }
+    </style>
+</head>
+<body>
+<ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<main style="place-items: center; grid-template-columns: 1fr">
+    <section class="card-wrapper max-width-1000">
+        <div>
+            <h1>iamra.css</h1>
+            <br>
+            <p>This is a lightweight, easy to use, adaptive, responsive, customizable, and
+                structured CSS framework. Only 20 kb</p>
+            <br>
+
+            <a class="button bg-primary" href="example.html">Explore.</a>
+        </div>
+        <div>
+            <h4>How to use</h4>
+            <br>
+            <div>
+                <div class="preview__header">
+                    <span>install via npm</span>
+                    <div onclick="copyToClipboard('npm-link')">copy</div>
+                </div>
+                <pre id="npm-link">
+
+    npm install iamra-css-mongo@latest
+                </pre>
+            </div>
+            <br/>
+            <div>
+                <div class="preview__header">
+                    <span>via unpkg</span>
+                    <div onclick="copyToClipboard('unpkg-link')">copy</div>
+                </div>
+                <pre id="unpkg-link">
+
+    &lt;link rel="stylesheet" href="https://unpkg.com/iamra-css-mongo/dist/style.css" /&gt;
+    </pre>
+            </div>
+            <br/>
+            <div>
+                <div class="preview__header">
+                    <span>via jsDelivr</span>
+                    <div onclick="copyToClipboard('cdn-link')">copy</div>
+                </div>
+                <pre id="cdn-link">
+
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iamra-css-mongo/dist/style.css" /&gt;
+    </pre>
+            </div>
+            <br/>
+            <div class="flex-ais-jcs gap-m font-size-s">
+                <a href="styles/style.css" download class="button btn-primary gap-s">
+                    <svg class="svg-m fill-blue" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 24 24" fill="none" >
+                        <path d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.082 1.082C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.082 1.082C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.082-1.082C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.082-1.082C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11l-3-3m3 3l3-3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Download Css</span>
+                </a>
+                <a href="styles/style-min.css" download class="button btn-primary gap-s">
+                    <svg class="svg-m fill-blue" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 24 24" fill="none" >
+                        <path d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.082 1.082C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.082 1.082C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.082-1.082C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.082-1.082C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11l-3-3m3 3l3-3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Download Css Minify</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    function copyToClipboard(id) {
+        const el = document.getElementById(id);
+        const text = el.innerText || el.textContent;
+
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy:", err);
+        });
+    }
+</script>
+
+</body>
+</html>
