@@ -449,12 +449,7 @@ ol {
                         </svg>
                         <span>Sub Menu</span>
                     </summary>
-                    <a class="sidebar-menu-item" data-title="Chil Menu" href="#ChilMenu">
-                        <svg class="sidebar-menu-button-svg">
-                            <use href="#display-place"></use>
-                        </svg>
-                        <p>Chil Menu</p>
-                    </a>
+                    <a class="sidebar-menu-item" data-title="Chil Menu" href="#ChilMenu">Chil Menu</a>
                 </details>
             </div>
         </aside>
@@ -1919,7 +1914,8 @@ footer {
     <div class="pagination-item">3</div>
     <div class="pagination-item">></div>
 </div>`,
-    `.sidebar-menu {
+    `
+.sidebar-menu {
     width: var(--width-sidebar);
     box-sizing: border-box;
     position: fixed;
@@ -1971,18 +1967,6 @@ footer {
     max-height: calc(100dvh - var(--height-header) - calc(var(--m) * 2));
 }
 
-.sidebar-menu-accordion {
-    box-sizing: border-box;
-}
-
-.sidebar-menu-accordion[open] {
-    background-color: var(--transthird-primary-color);
-}
-
-.sidebar-menu-accordion-elements {
-    box-sizing: border-box;
-}
-
 .sidebar-menu-element::-webkit-scrollbar {
     width: 7px;
 }
@@ -1990,7 +1974,6 @@ footer {
 .sidebar-menu-item {
     display: flex;
     column-gap: var(--m);
-    row-gap: var(--xxs);
     padding: var(--xxs) var(--m);
     color: var(--text-color);
     font-size: 0.8rem;
@@ -2050,6 +2033,30 @@ footer {
     fill: var(--primary-color);
 }
 
+.sidebar-menu-accordion {
+    box-sizing: border-box;
+}
+
+.sidebar-menu-accordion[open] {
+    background-color: var(--transthird-primary-color);
+}
+
+.sidebar-menu-accordion-elements {
+    box-sizing: border-box;
+}
+
+.has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    padding-left: calc(var(--m) * 2 + var(--xs));
+}
+
+.input-is-sidebar-active ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    display: block;
+}
+
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    display: none;
+}
+
 main.has-sidebar section {
     transition: .5s;
     padding-left: calc(var(--width-sidebar) + var(--m));
@@ -2085,24 +2092,9 @@ main.has-sidebar section {
                 <span>Display</span>
             </summary>
             <div class="sidebar-menu-accordion-elements">
-                <a class="sidebar-menu-item" data-title="Place" href="#Place">
-                    <svg class="sidebar-menu-button-svg">
-                        <use href="#display-place"></use>
-                    </svg>
-                    <p>Place</p>
-                </a>
-                <a class="sidebar-menu-item" data-title="Flex" href="#Flex">
-                    <svg class="sidebar-menu-button-svg">
-                        <use href="#display-flex"></use>
-                    </svg>
-                    <p>Flex</p>
-                </a>
-                <a class="sidebar-menu-item" data-title="Grid" href="#Grid">
-                    <svg class="sidebar-menu-button-svg">
-                        <use href="#display-grid"></use>
-                    </svg>
-                    <p>Grid</p>
-                </a>
+                <a class="sidebar-menu-item" data-title="Place" href="#Place">Place</a>
+                <a class="sidebar-menu-item" data-title="Flex" href="#Flex">Flex</a>
+                <a class="sidebar-menu-item" data-title="Grid" href="#Grid">Grid</a>
             </div>
         </details>
     </div>

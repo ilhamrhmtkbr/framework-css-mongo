@@ -1756,18 +1756,6 @@ footer {
     max-height: calc(100dvh - var(--height-header) - calc(var(--m) * 2));
 }
 
-.sidebar-menu-accordion {
-    box-sizing: border-box;
-}
-
-.sidebar-menu-accordion[open] {
-    background-color: var(--transthird-primary-color);
-}
-
-.sidebar-menu-accordion-elements {
-    box-sizing: border-box;
-}
-
 .sidebar-menu-element::-webkit-scrollbar {
     width: 7px;
 }
@@ -1775,7 +1763,6 @@ footer {
 .sidebar-menu-item {
     display: flex;
     column-gap: var(--m);
-    row-gap: var(--xxs);
     padding: var(--xxs) var(--m);
     color: var(--text-color);
     font-size: 0.8rem;
@@ -1833,6 +1820,30 @@ footer {
 .sidebar-menu-item:hover .sidebar-menu-button-svg,
 .sidebar-menu-item.active .sidebar-menu-button-svg {
     fill: var(--primary-color);
+}
+
+.sidebar-menu-accordion {
+    box-sizing: border-box;
+}
+
+.sidebar-menu-accordion[open] {
+    background-color: var(--transthird-primary-color);
+}
+
+.sidebar-menu-accordion-elements {
+    box-sizing: border-box;
+}
+
+.has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    padding-left: calc(var(--m) * 2 + var(--xs));
+}
+
+.input-is-sidebar-active ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    display: block;
+}
+
+.input-is-sidebar-active:checked ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
+    display: none;
 }
 
 main.has-sidebar section {
