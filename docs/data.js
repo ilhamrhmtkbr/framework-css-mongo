@@ -449,7 +449,7 @@ ol {
                         </svg>
                         <span>Sub Menu</span>
                     </summary>
-                    <a class="sidebar-menu-item" data-title="Chil Menu" href="#ChilMenu">Chil Menu</a>
+                    <a class="sidebar-menu-item" href="#ChilMenu">Chil Menu</a>
                 </details>
             </div>
         </aside>
@@ -2092,9 +2092,9 @@ main.has-sidebar section {
                 <span>Display</span>
             </summary>
             <div class="sidebar-menu-accordion-elements">
-                <a class="sidebar-menu-item" data-title="Place" href="#Place">Place</a>
-                <a class="sidebar-menu-item" data-title="Flex" href="#Flex">Flex</a>
-                <a class="sidebar-menu-item" data-title="Grid" href="#Grid">Grid</a>
+                <a class="sidebar-menu-item" href="#Place">Place</a>
+                <a class="sidebar-menu-item" href="#Flex">Flex</a>
+                <a class="sidebar-menu-item" href="#Grid">Grid</a>
             </div>
         </details>
     </div>
