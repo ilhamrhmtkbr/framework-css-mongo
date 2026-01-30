@@ -163,8 +163,8 @@ main {
 }
 
 section {
-    width: 100%;
-    box-sizing: border-box;
+    width: 100dvw;
+    max-width: 1920px;
     padding: 0 var(--m);
     height: max-content;
     display: grid;

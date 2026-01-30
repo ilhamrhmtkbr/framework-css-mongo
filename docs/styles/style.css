@@ -162,7 +162,8 @@ main {
 }
 
 section {
-    width: 100%;
+    width: 100dvw;
+    max-width: 1920px;
     box-sizing: border-box;
     padding: 0 var(--m);
     height: max-content;
