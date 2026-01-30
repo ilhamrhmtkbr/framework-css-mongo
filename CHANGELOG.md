@@ -1,3 +1,9 @@
+## [1.0.5] - 2026-01-30
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, dan `docs/data.js` :
+    - Mengubah style accordion, penyesuaian max-width
+    - Minify `style.css` di `dist/` dan `docs/styles/`
+  
 ## [1.0.4] - 2026-01-30
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example` dan `docs/data.js` :

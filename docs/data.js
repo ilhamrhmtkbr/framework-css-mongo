@@ -478,6 +478,7 @@ ol {
     padding: var(--m);
     border: var(--border);
     border-radius: var(--radius-s);
+    max-width: 85dvw
 }
 
 .accordion-item-check {
