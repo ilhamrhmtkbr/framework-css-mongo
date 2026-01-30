@@ -162,7 +162,7 @@ main {
 }
 
 section {
-    width: 100dvw;
+    width: 99.2dvw;
     max-width: 1920px;
     box-sizing: border-box;
     padding: 0 var(--m);
@@ -172,6 +172,10 @@ section {
     gap: var(--xx);
     padding-top: var(--ideal-distance-to-header);
     padding-bottom: var(--ideal-distance-to-header);
+}
+
+main.has-sidebar section{
+    padding-top: 0;
 }
 
 a {

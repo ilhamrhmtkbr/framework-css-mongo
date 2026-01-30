@@ -1,9 +1,15 @@
+## [1.0.4] - 2026-01-30
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example` dan `docs/data.js` :
+    - Mengubah style section, penyesuaian di bagian lebar
+    - Minify `style.css` di `dist/` dan `docs/styles/`
+
 ## [1.0.3] - 2026-01-29
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example` dan `docs/data.js` :
     - Mengubah style section, penyesuaian di bagian tinggi
     - Minify `style.css` di `dist/` dan `docs/styles/`
-    - 
+
 ## [1.0.2] - 2026-01-29
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example` dan `docs/data.js` :
