@@ -1022,23 +1022,23 @@ ol {
     fill: var(--text-color);
 }
 
-.fill-blue-hover:hover,
-.fill-blue {
+.fill-primary-hover:hover,
+.fill-primary {
     fill: var(--primary-color);
 }
 
-.fill-red-hover:hover,
-.fill-red {
+.fill-danger-hover:hover,
+.fill-danger {
     fill: var(--danger-color);
 }
 
-.fill-orange-hover:hover,
-.fill-orange {
+.fill-warning-hover:hover,
+.fill-warning {
     fill: var(--warning-color);
 }
 
-.fill-green-hover:hover,
-.fill-green {
+.fill-success-hover:hover,
+.fill-success {
     fill: var(--success-color);
 }
 
@@ -1769,7 +1769,7 @@ footer {
 .sidebar-menu-item {
     display: flex;
     column-gap: var(--m);
-    padding: var(--xxs) var(--m);
+    padding: var(--s) var(--m);
     color: var(--text-color);
     font-size: 0.8rem;
     align-items: center;
@@ -1807,8 +1807,8 @@ footer {
 }
 
 .sidebar-menu-button-svg {
-    max-width: var(--xs);
-    max-height: var(--xs);
+    max-width: var(--s);
+    max-height: var(--s);
     fill: var(--link-color);
 }
 
@@ -1841,7 +1841,7 @@ footer {
 }
 
 .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
-    padding-left: calc(var(--m) * 2 + var(--xs));
+    padding-left: calc(var(--m) * 2 + var(--s));
 }
 
 .input-is-sidebar-active ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {

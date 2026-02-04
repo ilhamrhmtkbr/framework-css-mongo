@@ -402,8 +402,36 @@ ol {
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docs</title>
+    <style>
+    @font-face {
+            font-family: Light;
+            src: url("./fonts/Poppins-Light.ttf");
+        }
+
+        @font-face {
+            font-family: Regular;
+            src: url("./fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: Medium;
+            src: url("./fonts/Poppins-Medium.ttf");
+        }
+
+        @font-face {
+            font-family: Bold;
+            src: url("./fonts/Poppins-Bold.ttf");
+        }
+</style>
 </head>
 <body>
+    <svg width="0" height="0" style="display: none">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="hide-sidebar">
+            <path d="M20 24H4c-2.2 0-4-1.8-4-4V4c0-2.2 1.8-4 4-4h16c2.2 0 4 1.8 4 4v16c0 2.2-1.8 4-4 4zM4 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4z"></path>
+            <path d="M8 24a.94.94 0 0 1-1-1V1a.94.94 0 0 1 1-1 .94.94 0 0 1 1 1v22a.94.94 0 0 1-1 1zm6-11c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l3-3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-3 3c-.2.2-.4.3-.7.3z"></path>
+            <path d="M17 16c-.3 0-.5-.1-.7-.3l-3-3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l3 3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z"></path>
+        </symbol>
+    </svg>
     <input class="input-is-sidebar-active" style="display: none" type="checkbox" id="is-sidebar-active">
     <header>
         <p class="example-button-change-theme cursor-pointer" onclick="changeTheme()">Dark Mode</p>
@@ -418,25 +446,25 @@ ol {
         </div>
         <div class="navigation">
             <a class="hover-progress" href="index.html">Index</a>
-            <a class="hover-progress active" href="example.html">Example</a>
+            <a class="hover-progress active" href="docs.html">Example</a>
         </div>
     </header>
     <nav>
         <a href="index.html">Index</a>
-        <a href="example.html">Example</a>
+        <a href="docs.html">Example</a>
     </nav>
     <main class="has-sidebar">
         <section>
             <div class="padding-top-ideal-distance-to-header max-width-800" id="content-1">
-            <div class="card-wrapper replace-shadow-with-border">
-                <h1></h1>
+                <div class="card-wrapper replace-shadow-with-border">
+                    <h1></h1>
+                </div>
             </div>
             <div class="padding-top-ideal-distance-to-header max-width-800" id="content-2">
-            <div class="card-wrapper replace-shadow-with-border">
-                <h1></h1>
+                <div class="card-wrapper replace-shadow-with-border">
+                    <h1></h1>
+                </div>
             </div>
-        </div>
-        </div>
         </section>
         <aside class="sidebar-menu">
             <div class="sidebar-menu-header">
@@ -446,20 +474,20 @@ ol {
             <div class="sidebar-menu-element">
                 <label class="sidebar-menu-item" for="is-sidebar-active">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#click"></use>
+                        <use href="#hide-sidebar"></use>
                     </svg>
                     <p>Menu</p>
                 </label>
                 <a class="sidebar-menu-item" data-title="Content 1" href="#content-1">
                     <svg class="sidebar-menu-button-svg">
-                        <use href="#click"></use>
+                        <use href="#hide-sidebar"></use>
                     </svg>
                     <p>Content 1</p>
                 </a>
                 <details class="sidebar-menu-accordion">
                     <summary class="sidebar-menu-item" data-title="Sub Menu">
                         <svg class="sidebar-menu-button-svg">
-                            <use href="#display"></use>
+                            <use href="#hide-sidebar"></use>
                         </svg>
                         <span>Sub Menu</span>
                     </summary>
@@ -471,6 +499,26 @@ ol {
     <footer>
         ...
     </footer>
+    <script>
+    let aside = document.getElementsByTagName('aside')[0];
+    function showMenu() {
+        aside.classList.toggle('show')
+
+        let iconGetMenu = document.getElementById('get-menu');
+        iconGetMenu.classList.toggle('opened')
+    }
+    function changeTheme() {
+        let body = document.getElementsByTagName("body")[0];
+        body.classList.toggle('dark-mode');
+
+        let buttonThemeMode = document.getElementsByClassName('example-button-change-theme')[0];
+        if (buttonThemeMode.textContent.includes('Dark')) {
+            buttonThemeMode.textContent = 'Light Mode';
+        } else {
+            buttonThemeMode.textContent = 'Dark Mode';
+        }
+    }
+    </script>
 </body>
 </html>`,
     `.accordion-item {
@@ -1989,7 +2037,7 @@ footer {
 .sidebar-menu-item {
     display: flex;
     column-gap: var(--m);
-    padding: var(--xxs) var(--m);
+    padding: var(--s) var(--m);
     color: var(--text-color);
     font-size: 0.8rem;
     align-items: center;
@@ -2027,8 +2075,8 @@ footer {
 }
 
 .sidebar-menu-button-svg {
-    max-width: var(--xs);
-    max-height: var(--xs);
+    max-width: var(--s);
+    max-height: var(--s);
     fill: var(--link-color);
 }
 
@@ -2061,7 +2109,7 @@ footer {
 }
 
 .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {
-    padding-left: calc(var(--m) * 2 + var(--xs));
+    padding-left: calc(var(--m) * 2 + var(--s));
 }
 
 .input-is-sidebar-active ~ .has-sidebar .sidebar-menu-accordion-elements .sidebar-menu-item {

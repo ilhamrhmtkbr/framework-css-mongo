@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Example</title>
+    <title>Docs</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/atom-one-dark.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -204,12 +204,14 @@
     </div>
     <div class="navigation">
         <a class="hover-progress" href="index.html">Index</a>
-        <a class="hover-progress active" href="example.html">Example</a>
+        <a class="hover-progress active" href="#">Docs</a>
+        <a class="hover-progress" href="dashboard.html">Dashboard</a>
     </div>
 </header>
 <nav>
     <a href="index.html">Index</a>
-    <a href="example.html">Example</a>
+    <a href="#">Example</a>
+    <a href="dashboard.html">Dashboard</a>
 </nav>
 <main class="has-sidebar">
     <section>
@@ -1379,7 +1381,7 @@
                 </svg>
                 <p>Menu</p>
             </label>
-            <a class="sidebar-menu-item" data-title="Abstract" href="#Abstract">
+            <a class="sidebar-menu-item active" data-title="Abstract" href="#Abstract">
                 <svg class="sidebar-menu-button-svg">
                     <use href="#abstract"></use>
                 </svg>
@@ -1615,6 +1617,32 @@
             });
         })
     }
+
+    var headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
+    var content = document.getElementsByClassName('padding-top-ideal-distance-to-header');
+    var links = document.querySelectorAll('a.sidebar-menu-item');
+
+    window.addEventListener('scroll', function () {
+        var userScroll = window.scrollY;
+
+        for (var i = 0; i < content.length; i++) {
+            let contentOffset = content[i].offsetTop,
+                contentHeight = contentOffset + content[i].offsetHeight;
+
+            if (userScroll >= contentOffset - headerHeight && contentHeight - headerHeight > userScroll) {
+                let linkHash = links[i].getAttribute('href'); // Ini akan mengambil "#overview"
+                let sectionId = '#' + content[i].id; // Ini akan menghasilkan "#overview"
+
+                if(linkHash === sectionId) {
+                    links[i].classList.add('active');
+                } else {
+                    links[i].classList.remove('active');
+                }
+            } else {
+                links[i].classList.remove('active');
+            }
+        }
+    });
 </script>
 </body>
 </html>
