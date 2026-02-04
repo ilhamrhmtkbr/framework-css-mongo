@@ -418,12 +418,12 @@ ol {
         </div>
         <div class="navigation">
             <a class="hover-progress" href="index.html">Index</a>
-            <a class="hover-progress active" href="example.html">Example</a>
+            <a class="hover-progress active" href="docs.html">Example</a>
         </div>
     </header>
     <nav>
         <a href="index.html">Index</a>
-        <a href="example.html">Example</a>
+        <a href="docs.html">Example</a>
     </nav>
     <main class="has-sidebar">
         <section>

@@ -1,3 +1,12 @@
+## [1.0.6] - 2026-02-04
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, dan `docs/data.js` :
+    - Mengubah penamaan style di masing masing class css ".fill-"
+    - Mengubah max-width&height ".sidebar-menu-button-svg" ke var(--s)
+    - Minify `style.css` di `dist/` dan `docs/styles/`
+    - Mengubah nama example.html menjadi docs.html
+    - Menambahkan contoh penggunaan framework buat dashboard (add: dashboard.html, staff.html, payroll.html)
+
 ## [1.0.5] - 2026-01-30
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, dan `docs/data.js` :

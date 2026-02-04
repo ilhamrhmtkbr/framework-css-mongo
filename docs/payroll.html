@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs</title>
+    <style>
+        @font-face {
+            font-family: Light;
+            src: url("./fonts/Poppins-Light.ttf");
+        }
+
+        @font-face {
+            font-family: Regular;
+            src: url("./fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: Medium;
+            src: url("./fonts/Poppins-Medium.ttf");
+        }
+
+        @font-face {
+            font-family: Bold;
+            src: url("./fonts/Poppins-Bold.ttf");
+        }
+    </style>
+</head>
+<body>
+<input class="input-is-sidebar-active" style="display: none" type="checkbox" id="is-sidebar-active">
+<header>
+    <p class="example-button-change-theme cursor-pointer" onclick="changeTheme()">Dark Mode</p>
+    <div class='get-menu' onclick="showMenu()">
+        <svg id='get-menu' viewBox="0 0 100 100">
+            <path class="line line1"
+                  d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/>
+            <path class="line line2" d="M 20,50 H 80"/>
+            <path class="line line3"
+                  d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/>
+        </svg>
+    </div>
+    <div class="navigation">
+        <a class="hover-progress" href="index.html">Index</a>
+        <a class="hover-progress" href="docs.html">Docs</a>
+        <a class="hover-progress active" href="#">Dashboard</a>
+        <a class="btn-primary button text-truncate" style="gap: 7px;">
+            <img class="picture-default object-fit-cover rounded svg-x" alt="user-photo" width="31" loading="lazy"
+                 height="31" src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png">
+            <span class="text-truncate" style="max-width: 100px">Ilham Rahmat Akbar</span>
+        </a>
+    </div>
+</header>
+<svg width="0" height="0" class="hidden">
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 20 20"
+            id="filter">
+        <path d="M1.744 1h16.512c.294 0 .561.169.68.43s.068.567-.13.779l-6.613 7.036C12.069 9.379 12 9.82 12 10v4.55a.5.5 0 0 1-.263.441l-3.002 1.612a.5.5 0 0 1-.737-.441V10c0-.18-.055-.621-.18-.754l-.729-.838h0l-.523-.587h0l-.812-.886h0L4.81 5.931h0L4.016 5.1h0l-.867-.897h0L1.54 2.56l-.346-.351c-.198-.212-.249-.517-.13-.779s.386-.43.68-.43z"
+              stroke="#fff" stroke-width="2" stroke-linejoin="round" fill="none"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bar">
+        <path d="M14 19V7a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v12m0-6H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="list">
+        <path d="M3 15h18M3 19h10m8-12h-8m8 4h-8m-8.4 0h2.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C9 10.24 9 9.96 9 9.4V6.6c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C8.24 5 7.96 5 7.4 5H4.6c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C3 5.76 3 6.04 3 6.6v2.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C3.76 11 4.04 11 4.6 11z"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="hide-sidebar">
+        <path d="M20 24H4c-2.2 0-4-1.8-4-4V4c0-2.2 1.8-4 4-4h16c2.2 0 4 1.8 4 4v16c0 2.2-1.8 4-4 4zM4 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4z"></path>
+        <path d="M8 24a.94.94 0 0 1-1-1V1a.94.94 0 0 1 1-1 .94.94 0 0 1 1 1v22a.94.94 0 0 1-1 1zm6-11c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l3-3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-3 3c-.2.2-.4.3-.7.3z"></path>
+        <path d="M17 16c-.3 0-.5-.1-.7-.3l-3-3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l3 3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="star">
+        <path d="M11.245 4.174c.232-.666.347-.999.518-1.091a.5.5 0 0 1 .475 0c.171.092.287.425.518 1.091l1.53 4.402c.066.19.099.284.158.355a.5.5 0 0 0 .195.142c.085.035.186.037.386.041l4.66.095c.705.014 1.057.022 1.198.156a.5.5 0 0 1 .147.451c-.035.191-.316.404-.878.83l-3.714 2.816c-.16.121-.24.182-.289.26a.5.5 0 0 0-.074.229c-.007.092.022.188.081.38l1.35 4.461c.204.675.306 1.012.222 1.187a.5.5 0 0 1-.384.279c-.193.026-.482-.175-1.061-.578l-3.826-2.662c-.165-.115-.247-.172-.336-.194a.5.5 0 0 0-.241 0c-.089.022-.172.08-.337.194L7.718 19.68c-.579.403-.868.604-1.061.578a.5.5 0 0 1-.384-.279c-.084-.175.018-.513.222-1.187l1.35-4.461c.058-.192.087-.288.081-.38a.5.5 0 0 0-.074-.229c-.049-.078-.129-.139-.289-.26l-3.714-2.816c-.562-.426-.843-.639-.878-.83a.5.5 0 0 1 .147-.451c.141-.134.493-.141 1.198-.156l4.66-.095c.201-.004.301-.006.386-.041a.5.5 0 0 0 .195-.142c.059-.071.092-.165.158-.355l1.53-4.402z"
+              stroke="#fff" stroke-width="2" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="user-check">
+        <path d="M14 19.286L15.8 21l4.2-4m-3.5-2.598c-.295-.17-.622-.292-.97-.355a2.44 2.44 0 0 0-.246-.03l-.488-.014c-.156.012-.243.027-.394.07-.145.041-.406.159-.929.396A5.98 5.98 0 0 1 11 15a5.98 5.98 0 0 1-2.473-.532l-.929-.396c-.151-.043-.238-.058-.394-.07-.15-.011-.263-.003-.488.015l-.25.031a3 3 0 0 0-2.418 2.418C4 16.731 4 17.049 4 17.684V19.4c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C4.76 21 5.04 21 5.6 21h4.9M15 7a4 4 0 1 1-8 0 4 4 0 1 1 8 0z"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="dashboard">
+        <rect x="2" y="2" width="9" height="11" rx="2"></rect>
+        <rect x="13" y="2" width="9" height="7" rx="2"></rect>
+        <rect x="2" y="15" width="9" height="7" rx="2"></rect>
+        <rect x="13" y="11" width="9" height="11" rx="2"></rect>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="staff">
+        <path d="M2 6.95l.069-1.691a4 4 0 0 1 3.189-3.189C5.626 2 6.067 2 6.95 2l.766.017a4 4 0 0 1 2.18.903c.144.119.28.256.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.351C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.948 0 4.804.769.079.071.154.146.224.224.77.856.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828S17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172S2 17.771 2 14V6.95z"></path>
+        <path fill-rule="evenodd"
+              d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 1 1 0 1.5h-5a.75.75 0 0 1-.75-.75z"></path>
+        <path d="M16.986 3.021C16.832 3 16.649 3 16.284 3H12l.37.383c.666.69.922.947 1.218 1.118a2.51 2.51 0 0 0 .543.233c.325.096.682.102 1.624.102h.334l2.45.083L19 5c-.186-1.037-.996-1.84-2.014-1.979z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.005 300.005" id="payroll">
+        <path d="M150 0C67.159 0 .002 67.159.002 150s67.157 150.005 149.997 150.005S300.003 232.841 300.003 150 232.841 0 150 0zm63.129 195.303c0 2.944-3.359 5.428-7.33 5.428H75.523c-3.973 0-7.33-2.485-7.33-5.428v-63.295c0-2.941 3.356-5.428 7.33-5.428h130.275c3.971 0 7.33 2.487 7.33 5.428v63.295zm25.936-25.942h0c-.001 2.944-3.36 5.431-7.331 5.431h-3.045v-42.785c0-11.573-10.268-20.99-22.891-20.99H94.13v-4.949c0-2.941 3.356-5.428 7.33-5.428h130.275c3.971 0 7.33 2.487 7.33 5.428v63.293zm-99.72-11.155c-6.069-.726-8.956-1.538-8.956-4.168 0-4.085 5.981-4.526 8.554-4.526 3.802 0 8.004 1.831 9.366 4.082l.599.993 8.948-4.142-.584-1.19c-3.081-6.3-8.525-8.23-12.758-9.018v-5.592h-10.463v5.561c-9.028 1.434-14.376 6.544-14.376 13.832 0 12.029 11.246 13.285 18.682 14.115 6.57.778 9.762 2.404 9.762 4.972 0 5.065-7.213 5.457-9.425 5.457-4.977 0-9.765-2.456-11.137-5.714l-.506-1.198-9.703 4.113.511 1.196c2.679 6.277 8.406 10.24 16.192 11.249v6.022h10.463v-6.323c7.496-.954 14.688-5.773 14.688-14.804.003-12.474-11.947-13.944-19.857-14.917z"></path>
+    </symbol>
+</svg>
+<nav>
+    <a href="index.html">Index</a>
+    <a href="docs.html">Docs</a>
+    <a href="#">Dashboard</a>
+</nav>
+<main class="has-sidebar">
+    <section class="padding-top-ideal-distance-to-header">
+        <a class="button bg-primary rounded" href="payroll.html" download>Download This Html</a>
+
+        <div class="grid-start" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))">
+            <div class="grid-start" style="grid-template-columns: repeat(2, minmax(212px, 1fr))">
+                <div class="card-wrapper replace-shadow-with-border" style="grid-template-rows: 1fr max-content">
+                    <div class="grid-start" style="grid-template-columns: max-content 1fr;">
+                        <span style="width: 41px; height: 41px"
+                              class="flex-aic-jcc text-white radius-s bg-success font-bold font-size-l">&#36;</span>
+                        <div>
+                            <p class="font-medium font-size-2x">2,532,000.00</p>
+                            <p>Gross salary this month</p>
+                        </div>
+                    </div>
+                    <div class="font-size-s font-light font-link"><span class="text-success pr-s">&#10140;</span>12%
+                        more
+                        than last month
+                    </div>
+                </div>
+                <div class="card-wrapper replace-shadow-with-border" style="grid-template-rows: 1fr max-content">
+                    <div class="grid-start" style="grid-template-columns: max-content 1fr;">
+                        <span style="width: 41px; height: 41px"
+                              class="flex-aic-jcc text-white radius-s bg-primary font-bold font-size-l">&#36;</span>
+                        <div>
+                            <p class="font-medium font-size-2x">2,532,000.00</p>
+                            <p>Net salary this month</p>
+                        </div>
+                    </div>
+                    <div class="font-size-s font-light font-link"><span class="text-primary pr-s">&#10140;</span>0.2%
+                        more
+                        than last month
+                    </div>
+                </div>
+                <div class="card-wrapper replace-shadow-with-border" style="grid-template-rows: 1fr max-content">
+                    <div class="grid-start" style="grid-template-columns: max-content 1fr;">
+                        <span style="width: 41px; height: 41px"
+                              class="flex-aic-jcc text-white radius-s bg-danger font-bold font-size-l">&#36;</span>
+                        <div>
+                            <p class="font-medium font-size-2x">253,200.00</p>
+                            <p>Total tax this month</p>
+                        </div>
+                    </div>
+                    <div class="font-size-s font-light font-link"><span class="text-danger pr-s">&#10140;</span>4% more
+                        than
+                        last month
+                    </div>
+                </div>
+                <div class="card-wrapper replace-shadow-with-border" style="grid-template-rows: 1fr max-content">
+                    <div class="grid-start" style="grid-template-columns: max-content 1fr;">
+                        <span style="width: 41px; height: 41px"
+                              class="flex-aic-jcc text-white radius-s bg-warning font-bold font-size-l">&#36;</span>
+                        <div>
+                            <p class="font-medium font-size-2x">111,000.00</p>
+                            <p>Total loan this month</p>
+                        </div>
+                    </div>
+                    <div class="font-size-s font-light font-link"><span class="text-warning pr-s">&#10004;</span>Without
+                        Changes
+                    </div>
+                </div>
+            </div>
+            <div class="card-wrapper replace-shadow-with-border">
+                <div class="font-size-l font-size-2x font-medium flex-aic-jcb gap-m">
+                    <h3 class="font-size-l font-size-2x font-medium">Annual payroll summary</h3>
+                    <div class="cursor-pointer flex-aic-jcc" style="width: 25px; height: 31px">&#8285;</div>
+                </div>
+                <canvas id="annual-payroll-summary"></canvas>
+            </div>
+        </div>
+        <div class="card-wrapper replace-shadow-with-border">
+            <div class="flex-aic-jcb gap-m">
+                <h3 class="font-size-l font-size-2x font-medium">Salary definition</h3>
+                <div class="flex-aic-jca gap-m">
+                    <div class="button btn-primary">
+                        <svg class="svg-l bg-primary flex-aic-jcc radius-s mr-s" style="padding: 4px; box-sizing: border-box">
+                            <use href="#filter"></use>
+                        </svg>
+                        <span>Sort</span>
+                    </div>
+                    <div class="button bg-primary">Add</div>
+                </div>
+            </div>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Title</th>
+                        <th>Level</th>
+                        <th>Basic Salary</th>
+                        <th>Allowance</th>
+                        <th>Gross Salary</th>
+                        <th>Deductions</th>
+                        <th>Net Salary</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Managing Director</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>02</td>
+                        <td>Executive Director</td>
+                        <td>ED</td>
+                        <td>₦395,000.00</td>
+                        <td>₦197,500.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>03</td>
+                        <td>General Manager</td>
+                        <td>GM</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>04</td>
+                        <td>Deputy General Manager</td>
+                        <td>DGM</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>05</td>
+                        <td>Asst. General Manager</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>06</td>
+                        <td>Principal Manager</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>07</td>
+                        <td>Senior Manager</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>08</td>
+                        <td>Manager</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>09</td>
+                        <td>Deputy Manager</td>
+                        <td>MD/CEO</td>
+                        <td>₦445,331.00</td>
+                        <td>₦600,000.00</td>
+                        <td>₦1,145,331.00</td>
+                        <td>₦224,000.00</td>
+                        <td>₦224,000.00</td>
+                        <td class="action">
+                            <a class="text-success">Edit</a>
+                            <a class="text-danger">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex-aic-jcb gap-m">
+                <div class="pagination">
+                    <div class="pagination-item"><</div>
+                    <div class="pagination-item">1</div>
+                    <div class="pagination-item">2</div>
+                    <div class="pagination-item">3</div>
+                    <div class="pagination-item">></div>
+                </div>
+                <div class="flex-aic-jca gap-m font-size-xs">
+                    <span>Showing</span>
+                    <div class="pagination-item">12</div>
+                    <span>Per Page</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <aside class="sidebar-menu">
+        <div class="sidebar-menu-header">
+            <svg class="sidebar-menu-header-logo" xmlns="http://www.w3.org/2000/svg" width="35.52" height="32.544"
+                 viewBox="0 0 6380 5852" shape-rendering="geometricPrecision" image-rendering="optimizeQuality"
+                 fill-rule="evenodd">
+                <path d="M2770 4042V2703c0-560 841-560 841 0v1339c0 559-841 559-841 0z" fill="#ffc300"/>
+                <path d="M4920 3444l561 972v2c37 63 55 130 55 196 0 67-18 134-55 197v1c-36 64-85 113-143 146v1c-55 31-122 48-198 48v2H4016c-539 0-539 841 0 841h1124v2c222 0 433-58 618-165h2c182-105 337-259 450-454h0c114-196 170-407 170-619 0-211-56-422-170-618h0l-562-973c-269-466-998-46-728 421z"
+                      fill="#ef2323"/>
+                <path d="M4094 2013c269 467 997 46 728-420l-561-973v-1c-112-193-266-347-451-454v-1C3625 57 3414 0 3190 0c-223 0-434 57-620 164v1c-184 107-339 261-450 454v1l-562 973c-269 466 459 887 729 420l561-973 1 1c38-66 86-116 142-148h1c55-32 123-49 198-49 76 0 143 17 198 49h2c55 32 104 82 142 148v-1l562 973z"
+                      fill="#009f4d"/>
+                <path d="M899 4416l562-972c269-467-459-887-729-421l-561 973h-1C57 4192 0 4403 0 4614c0 212 57 423 170 619 112 194 267 348 450 454h2c185 107 396 165 618 165v-2h1124c539 0 539-841 0-841H1240v-2c-76 0-143-17-198-48l1-1c-57-32-107-82-144-147-36-63-55-130-55-197 0-66 19-133 55-196v-2z"
+                      fill="#0060fa"/>
+            </svg>
+            <p class="sidebar-menu-header-title">Iamra Css</p>
+        </div>
+        <div class="sidebar-menu-element">
+            <label class="sidebar-menu-item" for="is-sidebar-active">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#hide-sidebar"></use>
+                </svg>
+                <p>Menu</p>
+            </label>
+            <a class="sidebar-menu-item" data-title="Dashboard" href="dashboard.html">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dashboard"></use>
+                </svg>
+                <p>Dashboard</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Staff" href="staff.html">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#staff"></use>
+                </svg>
+                <p>Staff</p>
+            </a>
+            <a class="sidebar-menu-item active" data-title="Money" href="#">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#payroll"></use>
+                </svg>
+                <p>Payroll</p>
+            </a>
+        </div>
+    </aside>
+</main>
+<footer>
+    ...
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const staffApplicationCard = document.getElementById('staff-application-card');
+    const annualPayrollSummary = document.getElementById('annual-payroll-summary');
+    const totalIncome = document.getElementById('total-income');
+
+    new Chart(staffApplicationCard, {
+        type: 'doughnut',
+        data: {
+            labels: ['Pending', 'Approved', 'Rejected'],
+            datasets: [{
+                data: [100, 60, 40],
+                backgroundColor: [
+                    '#7c3aed', // ungu
+                    '#ef4444', // merah
+                    '#facc15'  // kuning
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutout: '90%',   // bikin bolong (donut)
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            padding: 0
+        }
+    });
+
+    new Chart(annualPayrollSummary, {
+        type: 'bar',
+        data: {
+            labels: ['30 Sep', '10 Oct', '20 Oct', '30 Oct', '10 Nov'],
+            datasets: [
+                {
+                    label: 'Net salary',
+                    data: [380, 400, 320, 430, 410],
+                    backgroundColor: '#7c3aed'
+                },
+                {
+                    label: 'Tax',
+                    data: [50, 60, 40, 70, 55],
+                    backgroundColor: '#facc15'
+                },
+                {
+                    label: 'Loan',
+                    data: [100, 120, 80, 140, 130],
+                    backgroundColor: '#ef4444'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {position: 'bottom'}
+            }
+        }
+    });
+
+    new Chart(totalIncome, {
+        type: 'line',
+        data: {
+            labels: ['30 Sep', '10 Oct', '20 Oct', '30 Oct', '10 Nov'],
+            datasets: [{
+                label: 'Income',
+                data: [1.2, 2.8, 3.4, 7.5, 11.8],
+                fill: true, // area aktif
+                backgroundColor: 'rgba(124, 58, 237, 0.2)',
+                borderColor: '#7c3aed',
+                tension: 0.4,
+                pointBackgroundColor: '#ef4444'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {display: false}
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        callback: value => value + 'm'
+                    }
+                }
+            }
+        }
+    });
+</script>
+<script>
+    let aside = document.getElementsByTagName('aside')[0];
+
+    function changeTheme() {
+        let body = document.getElementsByTagName("body")[0];
+        body.classList.toggle('dark-mode');
+
+        let buttonThemeMode = document.getElementsByClassName('example-button-change-theme')[0];
+        if (buttonThemeMode.textContent.includes('Dark')) {
+            buttonThemeMode.textContent = 'Light Mode';
+        } else {
+            buttonThemeMode.textContent = 'Dark Mode';
+        }
+    }
+
+    function showBottomSheet() {
+        let bottomSheet = document.getElementsByClassName('bottom-sheet')[0];
+        bottomSheet.classList.toggle('active')
+    }
+
+    function showMenu() {
+        aside.classList.toggle('show')
+
+        let iconGetMenu = document.getElementById('get-menu');
+        iconGetMenu.classList.toggle('opened')
+    }
+
+    function showModal() {
+        let modal = document.getElementsByClassName('modal')[0];
+        modal.classList.toggle('hide')
+    }
+
+    function showToast() {
+        let toast = document.getElementsByClassName('toast')[0];
+        toast.classList.toggle('hidden')
+    }
+</script>
+</body>
+</html>
